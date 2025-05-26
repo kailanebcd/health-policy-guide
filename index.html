@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigating Healthcare Policy Changes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* Reset and Global Styles */
+        :root {
+            --primary-color: #005A9C; /* Calming Blue */
+            --secondary-color: #3D8B37; /* Reassuring Green */
+            --accent-color: #FDB813; /* Hopeful Yellow/Gold */
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+            --light-gray: #e9ecef;
+            --emergency-bg: #fff0f1; /* Light pink for emergency section */
+            --border-color: #dee2e6;
+            --link-hover-color: #003d6b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h1, h2, h3, h4 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        h1 { font-size: 2.5em; text-align: center; }
+        h2 { font-size: 2em; }
+        h3 { font-size: 1.5em; color: var(--secondary-color); }
+        h4 { font-size: 1.2em; }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        ul li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        ul li::before {
+            content: "\f00c"; /* Font Awesome check */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        a:hover {
+            color: var(--link-hover-color);
+            text-decoration: underline;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #e4a300;
+            color: var(--text-color);
+            text-decoration: none;
+        }
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+        .btn-primary:hover {
+            background-color: var(--link-hover-color);
+            color: #fff;
+        }
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            color: #fff;
+        }
+        .btn-secondary:hover {
+            background-color: #2a6425;
+            color: #fff;
+        }
+
+
+        /* Navigation */
+        .navbar {
+            background-color: #fff;
+            color: var(--primary-color);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: top 0.3s;
+        }
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px; /* Ensure padding for container within navbar */
+        }
+        .navbar-brand {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        .navbar-brand:hover {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .navbar-nav {
+            list-style: none;
+            display: flex;
+        }
+        .nav-item {
+            margin-left: 20px;
+        }
+        .nav-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+        }
+        .nav-toggle {
+            display: none;
+            font-size: 1.5em;
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        #hero {
+            background: linear-gradient(rgba(0, 90, 156, 0.7), rgba(61, 139, 55, 0.6)), url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aGVhbHRoY2FyZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=1000&q=60') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #hero h1 {
+            color: #fff;
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        #hero p {
+            font-size: 1.3em;
+            max-width: 700px;
+            margin-bottom: 30px;
+        }
+
+        /* Introduction */
+        #introduction {
+            background-color: var(--light-bg);
+        }
+        #introduction .container p {
+            font-size: 1.1em;
+        }
+
+        /* Historical Context Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            background-color: var(--accent-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1.5px;
+        }
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: white;
+            border: 4px solid var(--accent-color);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .timeline-item.left {
+            left: 0;
+        }
+        .timeline-item.right {
+            left: 50%;
+        }
+        .timeline-item.left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 18px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid white;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent white;
+        }
+        .timeline-item.right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 18px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid white;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent white transparent transparent;
+        }
+        .timeline-item.right::after {
+            left: -10px;
+        }
+        .timeline-content {
+            padding: 20px;
+            background-color: var(--light-bg);
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .timeline-content h4 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        /* Policy Change Cards (Accordion) */
+        .policy-card {
+            background-color: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .policy-card-header {
+            background-color: var(--light-bg);
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .policy-card-header h4 {
+            margin-bottom: 0;
+            color: var(--primary-color);
+        }
+        .policy-card-header .icon {
+            transition: transform 0.3s ease;
+        }
+        .policy-card-content {
+            padding: 20px;
+            display: none; /* Hidden by default */
+        }
+        .policy-card-content h5 {
+            color: var(--secondary-color);
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+        .policy-card-content ul li::before {
+            content: "\f105"; /* Font Awesome angle-right */
+        }
+        .policy-card-content .sources {
+            margin-top: 15px;
+            font-size: 0.9em;
+        }
+        .policy-card-content .sources a {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .policy-card.active .policy-card-header .icon {
+            transform: rotate(90deg);
+        }
+        .policy-card.active .policy-card-content {
+            display: block;
+        }
+
+        /* Resource Filter */
+        .filter-buttons {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .filter-buttons .btn {
+            margin: 5px;
+        }
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .resource-card {
+            background-color: var(--light-bg);
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: flex; /* Default to show */
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .resource-card h4 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+        .resource-card p {
+            font-size: 0.95em;
+            flex-grow: 1;
+        }
+        .resource-card .btn {
+            margin-top: 15px;
+            align-self: flex-start;
+        }
+        .resource-card.hidden {
+            display: none;
+        }
+
+        /* Action Items */
+        .action-item {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .action-item h4 {
+            display: flex;
+            align-items: center;
+        }
+        .action-item h4 i {
+            margin-right: 10px;
+            color: var(--accent-color);
+        }
+
+        /* Emergency Section */
+        #emergency {
+            background-color: var(--emergency-bg);
+            border-top: 3px solid red;
+        }
+        #emergency h2, #emergency h3 {
+            color: #c00;
+        }
+        #emergency ul li::before {
+            color: #c00;
+            content: "\f071"; /* Font Awesome warning */
+        }
+        #emergency strong {
+            font-weight: 700;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-color);
+            color: #f4f4f4;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        footer p {
+            margin-bottom: 10px;
+        }
+        footer a {
+            color: var(--accent-color);
+        }
+        footer a:hover {
+            color: #fff;
+        }
+        .footer-links a {
+            margin: 0 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 { font-size: 2em; }
+            #hero h1 { font-size: 2.5em; }
+            #hero p { font-size: 1.1em; }
+            #hero { height: auto; padding: 60px 20px; }
+
+            .navbar .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .navbar-nav {
+                flex-direction: column;
+                width: 100%;
+                display: none; /* Hidden by default on mobile */
+            }
+            .navbar-nav.active {
+                display: flex; /* Show when active */
+            }
+            .nav-item {
+                margin-left: 0;
+                width: 100%;
+                text-align: left;
+            }
+            .nav-link {
+                display: block;
+                padding: 10px;
+                border-bottom: 1px solid var(--light-gray);
+            }
+            .nav-link:hover, .nav-link.active {
+                border-bottom: 1px solid var(--accent-color); /* Adjusted for mobile */
+            }
+            .nav-toggle {
+                display: block;
+                position: absolute;
+                top: 15px;
+                right: 20px;
+            }
+            
+            /* Timeline adjustments for mobile */
+            .timeline::after {
+                left: 20px;
+            }
+            .timeline-item {
+                width: 100%;
+                padding-left: 50px;
+                padding-right: 10px;
+            }
+            .timeline-item.left::before, .timeline-item.right::before {
+                left: 40px;
+                border-color: transparent white transparent transparent;
+                border-width: 10px 10px 10px 0;
+            }
+            .timeline-item.left::after, .timeline-item.right::after {
+                left: 10px;
+            }
+            .timeline-item.right {
+                left: 0%;
+            }
+
+            .resource-grid {
+                grid-template-columns: 1fr; /* Stack cards on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar" id="main-nav">
+        <div class="container">
+            <a href="#hero" class="navbar-brand">Policy Navigator</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="navbar-nav" id="navbarNav">
+                <li class="nav-item"><a href="#hero" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#introduction" class="nav-link">Introduction</a></li>
+                <li class="nav-item"><a href="#understanding-policy" class="nav-link">Understanding</a></li>
+                <li class="nav-item"><a href="#key-changes" class="nav-link">Key Changes</a></li>
+                <li class="nav-item"><a href="#take-action" class="nav-link">Take Action</a></li>
+                <li class="nav-item"><a href="#find-help" class="nav-link">Find Help</a></li>
+                <li class="nav-item"><a href="#self-help" class="nav-link">Self-Help</a></li>
+                <li class="nav-item"><a href="#looking-forward" class="nav-link">Resilience</a></li>
+                <li class="nav-item"><a href="#emergency" class="nav-link">Emergency</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header id="hero">
+        <h1 data-aos="fade-down">Navigating Healthcare Policy Changes</h1>
+        <p data-aos="fade-up" data-aos-delay="200">A compassionate resource for protecting yourself and your loved ones during uncertain times.</p>
+        <a href="#introduction" class="btn btn-primary" data-aos="fade-up" data-aos-delay="400">Get Started</a>
+    </header>
+
+    <section id="introduction">
+        <div class="container">
+            <h2 data-aos="fade-right">You Are Not Alone</h2>
+            <p data-aos="fade-left">If you're reading this guide, you may be feeling overwhelmed, scared, or uncertain about recent changes to healthcare policies in the United States. These feelings are completely valid and understandable. Many people are experiencing similar concerns about how these changes might affect their health, their families, and their financial stability.</p>
+            <p data-aos="fade-left" data-aos-delay="100">This guide is written with deep respect for your situation and recognition that healthcare is not just a policy issue—it's about real people, real families, and real lives. We aim to provide you with clear, factual information and practical resources to help you navigate these challenging times with dignity and hope.</p>
+        </div>
+    </section>
+
+    <section id="understanding-policy">
+        <div class="container">
+            <h2 data-aos="fade-in">Understanding the Current Healthcare Policy Landscape</h2>
+            <h3 data-aos="fade-in" data-aos-delay="100">Historical Context: How We Got Here</h3>
+            <p data-aos="fade-in" data-aos-delay="200">The U.S. healthcare system has undergone significant transformations over the past several decades. Understanding this history helps contextualize current changes:</p>
+            
+            <div class="timeline">
+                <div class="timeline-item left" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <h4>The Foundation Years (1960s-1980s)</h4>
+                        <ul>
+                            <li>Medicare and Medicaid were established in 1965 to provide healthcare coverage for seniors and low-income individuals.</li>
+                            <li>These programs represented a fundamental shift toward government-supported healthcare access.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item right" data-aos="fade-left">
+                    <div class="timeline-content">
+                        <h4>The Affordable Care Act Era (2010-2024)</h4>
+                        <ul>
+                            <li>The ACA expanded Medicaid eligibility to include working-age adults without children.</li>
+                            <li>Created healthcare marketplaces and subsidies to make insurance more accessible.</li>
+                            <li>Introduced protections for people with pre-existing conditions.</li>
+                            <li>Expanded preventive care coverage.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item left" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <h4>Recent Political Shifts (2024-Present)</h4>
+                        <ul>
+                            <li>Changes in federal administration have led to policy reversals.</li>
+                            <li>Emphasis on reducing federal healthcare spending and regulations.</li>
+                            <li>Shift toward state-level decision-making on healthcare policies.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="key-changes" class="bg-light">
+        <div class="container">
+            <h2 data-aos="fade-in">Current Policy Changes and Their Impact</h2>
+            
+            <div class="policy-card" data-aos="fade-up">
+                <div class="policy-card-header">
+                    <h4><i class="fas fa-syringe"></i> COVID-19 Vaccine Access Restrictions</h4>
+                    <span class="icon"><i class="fas fa-chevron-right"></i></span>
+                </div>
+                <div class="policy-card-content">
+                    <h5>What's Happening:</h5>
+                    <p>The FDA has announced plans to limit access to updated COVID-19 boosters, primarily approving them for individuals aged 65 and older and those with high-risk health conditions. Healthy individuals under 65 will require new large-scale clinical trials to qualify for vaccination.</p>
+                    <h5>Why This Matters to You:</h5>
+                    <ul>
+                        <li>If you're a caregiver for elderly or immunocompromised family members, your ability to protect them through your own vaccination may be limited.</li>
+                        <li>Families with mixed-age groups may face difficult decisions about protection strategies.</li>
+                        <li>Healthcare workers and essential workers under 65 may have reduced access to updated vaccines.</li>
+                    </ul>
+                    <div class="sources">
+                        <strong>Sources:</strong>
+                        <a href="https://apnews.com/article/bb4de15b6ff955d6cd0b406aaec3cdc5" target="_blank" rel="noopener noreferrer">AP News</a>
+                        <a href="https://www.sfchronicle.com/health/article/bay-area-fda-covid-vaccine-warning-20337523.php" target="_blank" rel="noopener noreferrer">San Francisco Chronicle</a>
+                        <a href="https://www.washingtonpost.com/health/2025/05/26/covid-vaccine-fda-restrictions-approval/" target="_blank" rel="noopener noreferrer">The Washington Post</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="policy-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="policy-card-header">
+                    <h4><i class="fas fa-file-invoice-dollar"></i> Affordable Care Act Rollbacks and Medicaid Cuts</h4>
+                     <span class="icon"><i class="fas fa-chevron-right"></i></span>
+                </div>
+                <div class="policy-card-content">
+                    <h5>What's Happening:</h5>
+                    <p>House Republicans are pursuing efforts to roll back the ACA, proposing Medicaid cuts that could strip millions of Americans of their health coverage, particularly targeting poor, working-age adults without children who benefited from Medicaid expansion.</p>
+                    <h5>Why This Matters to You:</h5>
+                    <ul>
+                        <li>If you currently have Medicaid coverage through expansion, you may lose your insurance.</li>
+                        <li>Even if you keep coverage, services may be reduced or co-pays may increase.</li>
+                        <li>State budgets will be strained, potentially affecting local healthcare services.</li>
+                    </ul>
+                     <div class="sources">
+                        <strong>Source:</strong>
+                        <a href="https://www.axios.com/2025/05/20/obamacare-aca-repeal-fight-again" target="_blank" rel="noopener noreferrer">Axios</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="policy-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="policy-card-header">
+                    <h4><i class="fas fa-venus-mars"></i> Gender-Affirming Care Restrictions</h4>
+                     <span class="icon"><i class="fas fa-chevron-right"></i></span>
+                </div>
+                <div class="policy-card-content">
+                    <h5>What's Happening:</h5>
+                    <p>Executive Order 14187 aims to prevent gender-affirming care for Americans under 19 years old by withholding federal funding from facilities that provide such treatments.</p>
+                    <h5>Why This Matters to You:</h5>
+                    <ul>
+                        <li>Families with transgender youth may face limited access to medically necessary care.</li>
+                        <li>Some hospitals have paused services while others continue amid legal challenges.</li>
+                        <li>Geographic location may significantly impact access to care.</li>
+                    </ul>
+                    <div class="sources">
+                        <strong>Source:</strong>
+                        <a href="https://en.wikipedia.org/wiki/Executive_Order_14187" target="_blank" rel="noopener noreferrer">Wikipedia - Executive Order 14187</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="policy-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="policy-card-header">
+                    <h4><i class="fas fa-hospital-user"></i> HHS Reorganization and Workforce Reductions</h4>
+                     <span class="icon"><i class="fas fa-chevron-right"></i></span>
+                </div>
+                <div class="policy-card-content">
+                    <h5>What's Happening:</h5>
+                    <p>The U.S. Department of Health and Human Services is undergoing reorganization, including merging five agencies into a new Administration for a Healthy America and reducing the workforce by approximately 20,000 full-time employees.</p>
+                    <h5>Why This Matters to You:</h5>
+                    <ul>
+                        <li>Reduced capacity to respond to public health crises.</li>
+                        <li>Potential delays in processing applications for benefits or services.</li>
+                        <li>Fewer resources for health education and community outreach programs.</li>
+                    </ul>
+                    <div class="sources">
+                        <strong>Source:</strong>
+                        <a href="https://en.wikipedia.org/wiki/2025_U.S._Department_of_Health_and_Human_Services_reorganization" target="_blank" rel="noopener noreferrer">Wikipedia - 2025 HHS Reorganization</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="policy-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="policy-card-header">
+                    <h4><i class="fas fa-pills"></i> Prescription Drug Cost Issues</h4>
+                     <span class="icon"><i class="fas fa-chevron-right"></i></span>
+                </div>
+                <div class="policy-card-content">
+                    <h5>What's Happening:</h5>
+                    <p>The FTC has sued the three largest pharmacy benefit managers for allegedly engaging in anti-competitive practices that increased insulin prices.</p>
+                    <h5>Why This Matters to You:</h5>
+                    <ul>
+                        <li>If you or a family member has diabetes, insulin costs may remain high during litigation.</li>
+                        <li>Other prescription medications may also be affected by similar practices.</li>
+                        <li>Insurance formularies may change, affecting your access to specific medications.</li>
+                    </ul>
+                    <div class="sources">
+                        <strong>Source:</strong>
+                        <a href="https://en.wikipedia.org/wiki/Federal_Trade_Commission" target="_blank" rel="noopener noreferrer">Wikipedia - Federal Trade Commission</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="take-action">
+        <div class="container">
+            <h2 data-aos="fade-in">Protecting Yourself and Your Family: A Practical Guide</h2>
+
+            <div class="action-item" data-aos="fade-up">
+                <h3><i class="fas fa-notes-medical"></i> Immediate Actions You Can Take</h3>
+                <ul>
+                    <li><strong>Create a health inventory:</strong> List all current medications, medical conditions, and healthcare providers.</li>
+                    <li><strong>Gather important documents:</strong> Insurance cards, medical records, prescription information.</li>
+                    <li><strong>Take photos/make copies:</strong> Store digital and physical copies in multiple locations.</li>
+                    <li><strong>Emergency contact list:</strong> Include all healthcare providers, pharmacies, and insurance contacts.</li>
+                </ul>
+            </div>
+
+            <div class="action-item" data-aos="fade-up" data-aos-delay="100">
+                <h3><i class="fas fa-shield-alt"></i> Understand Your Insurance Coverage</h3>
+                 <ul>
+                    <li><strong>Review your current plan:</strong> Understand what's covered and what isn't.</li>
+                    <li><strong>Know your enrollment periods:</strong> Mark important dates on your calendar.</li>
+                    <li><strong>Explore backup options:</strong> Research alternative insurance sources in case of changes.</li>
+                    <li><strong>Contact your insurance:</strong> Ask specific questions about how policy changes might affect your coverage.</li>
+                </ul>
+            </div>
+
+            <div class="action-item" data-aos="fade-up" data-aos-delay="200">
+                <h3><i class="fas fa-user-md"></i> Build Healthcare Relationships</h3>
+                <ul>
+                    <li><strong>Establish care with providers now:</strong> Don't wait for emergencies.</li>
+                    <li><strong>Build relationships:</strong> Healthcare providers who know you are more likely to help during difficult times.</li>
+                    <li><strong>Ask about payment plans:</strong> Many providers offer sliding scale fees or payment arrangements.</li>
+                    <li><strong>Explore community health centers:</strong> These often provide care regardless of insurance status.</li>
+                </ul>
+            </div>
+
+            <div class="action-item" data-aos="fade-up" data-aos-delay="300">
+                <h3><i class="fas fa-piggy-bank"></i> Financial Protection Strategies</h3>
+                <ul>
+                    <li><strong>Emergency health fund:</strong> Even small amounts ($10-25/month) can help.</li>
+                    <li><strong>Generic medications:</strong> Ask providers about generic alternatives.</li>
+                    <li><strong>Prescription assistance programs:</strong> Most major drug companies offer help for qualifying individuals.</li>
+                    <li><strong>Healthcare FSA/HSA:</strong> If available through work, these provide tax-advantaged savings.</li>
+                </ul>
+            </div>
+             <div class="action-item" data-aos="fade-up" data-aos-delay="400">
+                <h3><i class="fas fa-tags"></i> Cost Reduction Techniques</h3>
+                <ul>
+                    <li><strong>GoodRx and similar apps:</strong> Can significantly reduce prescription costs.</li>
+                    <li><strong>Hospital charity care:</strong> Most hospitals are required to offer charity care programs.</li>
+                    <li><strong>Medical bill negotiation:</strong> Many providers will reduce bills if you ask and explain your situation.</li>
+                    <li><strong>Community resources:</strong> Local organizations often help with medical expenses.</li>
+                </ul>
+            </div>
+            <div class="action-item" data-aos="fade-up" data-aos-delay="500">
+                <h3><i class="fas fa-heartbeat"></i> Preventive Health Strategies</h3>
+                 <ul>
+                    <li><strong>Preventive care:</strong> Take advantage of free preventive services while they're available.</li>
+                    <li><strong>Chronic condition management:</strong> Stay on top of existing conditions to prevent costly emergencies.</li>
+                    <li><strong>Mental health:</strong> Don't neglect emotional wellbeing during stressful times.</li>
+                    <li><strong>Health education:</strong> Learn about your conditions to advocate for yourself effectively.</li>
+                </ul>
+            </div>
+             <div class="action-item" data-aos="fade-up" data-aos-delay="600">
+                <h3><i class="fas fa-users"></i> Build Support Networks</h3>
+                <ul>
+                    <li><strong>Family and friends:</strong> Create mutual support systems.</li>
+                    <li><strong>Community groups:</strong> Connect with others facing similar challenges.</li>
+                    <li><strong>Online communities:</strong> Find support and share resources virtually.</li>
+                    <li><strong>Healthcare advocates:</strong> Some organizations provide free advocacy services.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="find-help" class="bg-light">
+        <div class="container">
+            <h2 data-aos="fade-in">Finding Help and Support: Comprehensive Resources</h2>
+            <p data-aos="fade-in" data-aos-delay="100">What kind of help do you need? Click a category below to see relevant resources.</p>
+
+            <div class="filter-buttons" data-aos="fade-up">
+                <button class="btn btn-primary filter-btn" data-filter="all">Show All</button>
+                <button class="btn filter-btn" data-filter="coverage">Healthcare Coverage</button>
+                <button class="btn filter-btn" data-filter="prescription">Prescription Aid</button>
+                <button class="btn filter-btn" data-filter="community">Community Health</button>
+                <button class="btn filter-btn" data-filter="mental">Mental Health</button>
+                <button class="btn filter-btn" data-filter="legal">Legal/Advocacy</button>
+                <button class="btn filter-btn" data-filter="financial">Financial Aid</button>
+            </div>
+
+            <div class="resource-grid">
+                <!-- Healthcare Coverage -->
+                <div class="resource-card" data-category="coverage" data-aos="zoom-in-up">
+                    <h4>Healthcare.gov</h4>
+                    <p>Find insurance plans and subsidies, check Medicaid eligibility, access enrollment assistance.</p>
+                    <a href="https://www.healthcare.gov" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Visit Website</a>
+                </div>
+                <div class="resource-card" data-category="coverage" data-aos="zoom-in-up">
+                    <h4>Medicaid.gov</h4>
+                    <p>State-by-state Medicaid information, application assistance, coverage details.</p>
+                    <a href="https://www.medicaid.gov" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Visit Website</a>
+                </div>
+                 <div class="resource-card" data-category="coverage" data-aos="zoom-in-up">
+                    <h4>State Health Insurance Assistance Program (SHIP)</h4>
+                    <p>Free Medicare counseling, state-specific insurance guidance.</p>
+                    <a href="https://www.shiphelp.org" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Visit Website</a>
+                </div>
+
+                <!-- Prescription Assistance -->
+                <div class="resource-card" data-category="prescription" data-aos="zoom-in-up">
+                    <h4>Medicare Extra Help</h4>
+                    <p>Help with prescription drug costs, low-income subsidies.</p>
+                    <a href="https://www.ssa.gov/benefits/medicare/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Visit Website</a>
+                </div>
+                <div class="resource-card" data-category="prescription" data-aos="zoom-in-up">
+                    <h4>NeedyMeds</h4>
+                    <p>Comprehensive database of patient assistance programs, free/low-cost clinics, discount programs.</p>
+                    <a href="https://www.needymeds.org" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Visit Website</a>
+                </div>
+                <div class="resource-card" data-category="prescription" data-aos="zoom-in-up">
+                    <h4>Partnership for Prescription Assistance</h4>
+                    <p>Database of manufacturer assistance programs, eligibility screening tools.</p>
+                    <a href="https://www.pparx.org" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Visit Website</a>
+                </div>
+                 <div class="resource-card" data-category="prescription" data-aos="zoom-in-up">
+                    <h4>GoodRx</h4>
+                    <p>Prescription discount coupons and price comparison tools.</p>
+                    <a href="https://www.goodrx.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Visit Website</a>
+                </div>
+                <div class="resource-card" data-category="prescription" data-aos="zoom-in-up">
+                    <h4>SingleCare</h4>
+                    <p>Free prescription discount program.</p>
+                    <a href="https://www.singlecare.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Visit Website</a>
+                </div>
+                 <div class="resource-card" data-category="prescription community" data-aos="zoom-in-up">
+                    <h4>340B Health</h4>
+                    <p>Information about discounted medications for qualifying patients at certain health centers.</p>
+                    <a href="https://www.340bhealth.org" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Visit Website</a>
+                </div>
+
+
+                <!-- Community Health Centers -->
+                <div class="resource-card" data-category="community" data-aos="zoom-in-up">
+                    <h4>Find a Health Center (HRSA)</h4>
+                    <p>Locate Federally Qualified Health Centers (FQHCs) offering sliding scale fees and comprehensive services regardless of insurance.</p>
+                    <a href="https://findahealthcenter.hrsa.gov" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Visit Website</a>
+                </div>
+                 <div class="resource-card" data-category="community" data-aos="zoom-in-up">
+                    <h4>National Association of Community Health Centers</h4>
+                    <p>Community health center locator and resources for underserved populations.</p>
+                    <a href="https://www.nachc.org" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Visit Website</a>
+                </div>
+
+
+                <!-- General Healthcare Assistance / Advocacy -->
+                <div class="resource-card" data-category="legal coverage" data-aos="zoom-in-up">
+                    <h4>Patient Advocate Foundation</h4>
+                    <p>Case management services, financial assistance programs, insurance appeals assistance.</p>
+                    <a href="https://www.patientadvocate.org" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Visit Website</a>
+                </div>
+                 <div class="resource-card" data-category="legal coverage" data-aos="zoom-in-up">
+                    <h4>Health Consumer Alliance</h4>
+                    <p>Healthcare advocacy and education, assistance with insurance problems.</p>
+                    <a href="https://healthconsumer.org" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Visit Website</a>
+                </div>
+
+                <!-- Mental Health Support -->
+                <div class="resource-card" data-category="mental" data-aos="zoom-in-up">
+                    <h4>988 Suicide & Crisis Lifeline</h4>
+                    <p>24/7 crisis support. Free and confidential. Call or text 988.</p>
+                    <a href="tel:988" class="btn btn-secondary">Call or Text 988</a>
+                </div>
+                <div class="resource-card" data-category="mental" data-aos="zoom-in-up">
+                    <h4>Crisis Text Line</h4>
+                    <p>Free crisis support via text. Text HOME to 741741.</p>
+                     <a href="sms:741741&body=HOME" class="btn btn-secondary">Text HOME to 741741</a>
+                </div>
+                <div class="resource-card" data-category="mental" data-aos="zoom-in-up">
+                    <h4>NAMI (National Alliance on Mental Illness)</h4>
+                    <p>Support groups, educational resources, advocacy information.</p>
+                    <a href="https://www.nami.org" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Visit Website</a>
+                </div>
+                <div class="resource-card" data-category="mental" data-aos="zoom-in-up">
+                    <h4>Mental Health America</h4>
+                    <p>Screening tools, local affiliate resources.</p>
+                    <a href="https://www.mhanational.org" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Visit Website</a>
+                </div>
+
+                <!-- Legal and Advocacy Resources -->
+                <div class="resource-card" data-category="legal" data-aos="zoom-in-up">
+                    <h4>National Health Law Program</h4>
+                    <p>Legal advocacy for healthcare access, know-your-rights resources.</p>
+                    <a href="https://healthlaw.org" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Visit Website</a>
+                </div>
+                <div class="resource-card" data-category="legal" data-aos="zoom-in-up">
+                    <h4>Families USA</h4>
+                    <p>Healthcare advocacy and education, policy analysis and consumer guides.</p>
+                    <a href="https://familiesusa.org" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Visit Website</a>
+                </div>
+
+                <!-- Emergency Financial Assistance -->
+                <div class="resource-card" data-category="financial" data-aos="zoom-in-up">
+                    <h4>RIP Medical Debt</h4>
+                    <p>Medical debt forgiveness programs, resources for managing medical debt.</p>
+                    <a href="https://ripmedicaldebt.org" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Visit Website</a>
+                </div>
+                <div class="resource-card" data-category="financial community" data-aos="zoom-in-up">
+                    <h4>211</h4>
+                    <p>Local resource referrals for emergency assistance programs (food, housing, utilities). Dial 2-1-1.</p>
+                    <a href="tel:211" class="btn btn-secondary">Dial 2-1-1</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="self-help">
+        <div class="container">
+            <h2 data-aos="fade-in">Self-Help Solutions and Advocacy Tools</h2>
+
+            <div class="action-item" data-aos="fade-up">
+                <h3><i class="fas fa-book-medical"></i> Personal Health Management</h3>
+                <h4>Health Record Keeping:</h4>
+                <ul>
+                    <li><strong>Create a health binder:</strong> Medical history, current medications, insurance information, emergency contacts, advance directives.</li>
+                    <li><strong>Digital tools:</strong> MyChart or similar patient portals, medication reminder apps, health tracking apps.</li>
+                </ul>
+                 <h4>Communication with Healthcare Providers:</h4>
+                <ul>
+                    <li><strong>Prepare for appointments:</strong> Write down questions, bring medication list, consider bringing a friend/family member.</li>
+                    <li><strong>Follow-up strategies:</strong> Request visit summaries, ask for written instructions, know who to contact with questions.</li>
+                </ul>
+            </div>
+
+            <div class="action-item" data-aos="fade-up" data-aos-delay="100">
+                <h3><i class="fas fa-gavel"></i> Advocacy Skills</h3>
+                <h4>Insurance Appeals:</h4>
+                <ul>
+                    <li><strong>Know your rights:</strong> Right to appeal denied claims, external review, emergency care.</li>
+                    <li><strong>Document everything:</strong> Keep copies of communications, note dates/names, request written confirmations.</li>
+                </ul>
+                <h4>Medical Bill Management:</h4>
+                 <ul>
+                    <li><strong>Review all bills carefully:</strong> Check for errors, verify insurance processing, question unknown charges.</li>
+                    <li><strong>Negotiation strategies:</strong> Ask about payment plans, request charity care, negotiate reduced payments.</li>
+                </ul>
+            </div>
+
+            <div class="action-item" data-aos="fade-up" data-aos-delay="200">
+                <h3><i class="fas fa-people-group"></i> Community Organizing</h3>
+                <h4>Building Support Networks:</h4>
+                <ul>
+                    <li><strong>Connect with others:</strong> Join or create support groups, participate in community meetings, use social media responsibly.</li>
+                </ul>
+                <h4>Advocacy and Civic Engagement:</h4>
+                <ul>
+                    <li><strong>Stay informed:</strong> Follow reputable news, understand local/state policies, learn about representatives.</li>
+                    <li><strong>Make your voice heard:</strong> Contact officials, attend town halls, vote, share your story when comfortable.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="looking-forward">
+        <div class="container">
+            <h2 data-aos="fade-right">Looking Forward: Hope and Resilience</h2>
+            <p data-aos="fade-left">Healthcare policy is not permanent. Throughout American history, we've seen healthcare access expand and contract, and communities have consistently worked together to protect vulnerable members. Your advocacy and engagement matter.</p>
+            
+            <h3 data-aos="fade-right" data-aos-delay="100">Building Long-term Resilience</h3>
+            <h4 data-aos="fade-left" data-aos-delay="150">Personal Resilience:</h4>
+            <ul>
+                <li>Develop multiple support systems: Don't rely on any single resource.</li>
+                <li>Stay informed but set boundaries: Know what's happening without overwhelming yourself.</li>
+                <li>Practice self-care: Your wellbeing matters for your family and community.</li>
+                <li>Build skills: Learn about healthcare navigation, advocacy, and community organizing.</li>
+            </ul>
+            <h4 data-aos="fade-left" data-aos-delay="200">Community Resilience:</h4>
+            <ul>
+                <li>Share resources: Help others find the assistance they need.</li>
+                <li>Support local organizations: Volunteer or donate if you're able.</li>
+                <li>Build relationships: Strong communities protect vulnerable members.</li>
+                <li>Plan together: Work with neighbors and friends to prepare for challenges.</li>
+            </ul>
+
+            <h3 data-aos="fade-right" data-aos-delay="250">A Message of Hope</h3>
+            <p data-aos="fade-left" data-aos-delay="300">While the current healthcare policy landscape presents real challenges, remember that you have more power and resources than you might realize. Every day, healthcare providers, community organizations, and fellow community members are working to ensure that everyone has access to the care they need.</p>
+            <p data-aos="fade-left" data-aos-delay="350">Your health matters. Your family's wellbeing matters. You deserve dignity, respect, and access to quality healthcare regardless of policy changes or political circumstances.</p>
+        </div>
+    </section>
+
+    <section id="emergency">
+        <div class="container">
+            <h2 data-aos="fade-in"><i class="fas fa-exclamation-triangle"></i> Emergency Quick Reference</h2>
+            <h3>When You Need Help Right Now</h3>
+            <ul>
+                <li><strong>Medical Emergency:</strong> Call <a href="tel:911"><strong>911</strong></a></li>
+                <li><strong>Mental Health Crisis:</strong> 
+                    <ul>
+                        <li>Call or text <a href="tel:988"><strong>988</strong></a> (Suicide & Crisis Lifeline)</li>
+                        <li>Text HOME to <a href="sms:741741&body=HOME"><strong>741741</strong></a> (Crisis Text Line)</li>
+                    </ul>
+                </li>
+                <li><strong>Immediate Healthcare Needs:</strong>
+                    <ul>
+                        <li>Emergency room (required to provide care regardless of ability to pay)</li>
+                        <li>Urgent care centers</li>
+                        <li>Community health centers</li>
+                    </ul>
+                </li>
+                 <li><strong>Insurance/Benefits Crisis:</strong>
+                    <ul>
+                        <li>Contact your state's insurance department</li>
+                        <li>Call the number on your insurance card</li>
+                        <li>Contact a local navigator or advocate</li>
+                    </ul>
+                </li>
+                <li><strong>Prescription Emergency:</strong>
+                    <ul>
+                        <li>Contact your doctor's office</li>
+                        <li>Ask pharmacist about emergency supplies</li>
+                        <li>Contact manufacturer patient assistance programs</li>
+                    </ul>
+                </li>
+            </ul>
+            <h3>Keep This Information Accessible</h3>
+            <ul>
+                <li>Store important phone numbers in your phone and on paper.</li>
+                <li>Keep copies of important documents in multiple locations.</li>
+                <li>Share this information with trusted family members or friends.</li>
+                <li>Update your information regularly.</li>
+            </ul>
+            <p data-aos="fade-up" style="margin-top: 30px; font-style: italic;"><strong>Remember: You are not alone in this. Millions of Americans are navigating similar challenges, and there are people and organizations dedicated to helping. Take things one step at a time, ask for help when you need it, and know that your efforts to protect yourself and your family are important and valid.</strong></p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <h3>Additional Resources and References</h3>
+            <div class="footer-links" data-aos="fade-up">
+                <a href="https://www.kff.org" target="_blank" rel="noopener noreferrer">Kaiser Family Foundation</a> |
+                <a href="https://www.commonwealthfund.org" target="_blank" rel="noopener noreferrer">Commonwealth Fund</a> |
+                <a href="https://www.healthaffairs.org" target="_blank" rel="noopener noreferrer">Health Affairs</a>
+            </div>
+            <p style="margin-top: 20px; font-size: 0.9em;" data-aos="fade-up" data-aos-delay="100">
+                Primary Sources Cited: 
+                <a href="https://apnews.com/article/bb4de15b6ff955d6cd0b406aaec3cdc5" target="_blank">AP News</a>,
+                <a href="https://www.sfchronicle.com/health/article/bay-area-fda-covid-vaccine-warning-20337523.php" target="_blank">SF Chronicle</a>,
+                <a href="https://www.washingtonpost.com/health/2025/05/26/covid-vaccine-fda-restrictions-approval/" target="_blank">Washington Post</a>,
+                <a href="https://www.axios.com/2025/05/20/obamacare-aca-repeal-fight-again" target="_blank">Axios</a>,
+                <a href="https://en.wikipedia.org/wiki/Executive_Order_14187" target="_blank">Wikipedia (EO 14187)</a>,
+                <a href="https://en.wikipedia.org/wiki/2025_U.S._Department_of_Health_and_Human_Services_reorganization" target="_blank">Wikipedia (HHS Reorg)</a>,
+                <a href="https://en.wikipedia.org/wiki/Federal_Trade_Commission" target="_blank">Wikipedia (FTC)</a>,
+                <a href="https://www.kammco.com/vital-sounds/2024q4/legislative-trend-may-present-new-liability-risks-for-healthcare-providers/" target="_blank">KAMMCO</a>.
+            </p>
+            <p style="margin-top: 10px; font-size: 0.8em;" data-aos="fade-up" data-aos-delay="200">This guide was last updated in May 2025. Healthcare policies continue to evolve, so please verify current information with official sources and local resources.</p>
+            <p style="margin-top: 10px; font-size: 0.8em;" data-aos="fade-up" data-aos-delay="300">© 2024 Healthcare Policy Navigator. Information purposes only.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800, // values from 0 to 3000, with step 50ms
+            once: true, // whether animation should happen only once - while scrolling down
+        });
+
+        // Mobile Navigation Toggle
+        const navToggle = document.getElementById('navToggle');
+        constnavbarNav = document.getElementById('navbarNav');
+        navToggle.addEventListener('click', () => {
+            navbarNav.classList.toggle('active');
+            // Toggle icon
+            const icon = navToggle.querySelector('i');
+            if (navbarNav.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile nav when a link is clicked
+        document.querySelectorAll('#navbarNav .nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navbarNav.classList.contains('active')) {
+                    navbarNav.classList.remove('active');
+                    navToggle.querySelector('i').classList.remove('fa-times');
+                    navToggle.querySelector('i').classList.add('fa-bars');
+                }
+            });
+        });
+        
+        // Active Nav Link Highlighting on Scroll
+        const sections = document.querySelectorAll('section[id], header[id]');
+        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+            // Special case for hero
+            if (current === 'hero' || current === '') {
+                 document.querySelector('.navbar-nav .nav-link[href="#hero"]').classList.add('active');
+            }
+        });
+
+
+        // Policy Card Accordion
+        const policyCardHeaders = document.querySelectorAll('.policy-card-header');
+        policyCardHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const card = header.parentElement;
+                card.classList.toggle('active');
+            });
+        });
+
+        // Resource Filter
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const resourceCards = document.querySelectorAll('.resource-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Active button state
+                filterButtons.forEach(btn => btn.classList.remove('btn-primary'));
+                button.classList.add('btn-primary');
+
+                const filter = button.dataset.filter;
+                resourceCards.forEach(card => {
+                    const categories = card.dataset.category.split(' ');
+                    if (filter === 'all' || categories.includes(filter)) {
+                        card.classList.remove('hidden');
+                        card.style.display = 'flex'; // Make sure AOS can animate it if it was hidden by JS
+                    } else {
+                        card.classList.add('hidden');
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Hide navbar on scroll down, show on scroll up
+        let lastScrollTop = 0;
+        const navbar = document.getElementById('main-nav');
+        window.addEventListener("scroll", function(){
+           let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+           if (scrollTop > lastScrollTop && scrollTop > navbar.offsetHeight){
+              // Scroll Down
+              navbar.style.top = "-80px"; // Adjust based on navbar height
+           } else {
+              // Scroll Up
+              navbar.style.top = "0";
+           }
+           lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+        }, false);
+
+    </script>
+</body>
+</html>
